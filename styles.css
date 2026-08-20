@@ -60,7 +60,6 @@ a { color: inherit; text-decoration: none; }
 .kicker { display: flex; align-items: center; gap: 12px; color: var(--ember-light); font-size: 10px; font-weight: 700; letter-spacing: .27em; }
 .kicker span { width: 36px; height: 1px; background: var(--ember); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-.hero-logo { width: min(600px, 94%); height: clamp(215px, 34vw, 450px); margin: -42px 0 -65px -18px; object-fit: contain; object-position: left center; filter: drop-shadow(0 20px 30px rgba(0,0,0,.75)) contrast(1.06); }
 .hero-line { margin: 28px 0 18px; font: 600 clamp(32px, 4.4vw, 69px)/.88 "Cormorant Garamond", serif; }
 .hero-line em, .story h2 em { color: var(--ember-light); }
 .hero-intro { max-width: 510px; color: var(--muted); font-size: 14px; line-height: 1.8; }
@@ -119,9 +118,11 @@ footer p { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 88px; }
-  .hero-copy { padding: 70px 26px 20px; }
-  .hero-logo { width: min(540px, 100%); height: clamp(240px, 60vw, 370px); margin: -38px 0 -52px -14px; }
-  .character-wrap { height: 75svh; min-height: 600px; margin: 0; }
+  .character-wrap { order: 1; height: 75svh; min-height: 600px; margin: 0; }
+  .hero-copy { order: 2; padding: 64px 26px 86px; text-align: center; }
+  .hero-copy .kicker { justify-content: center; }
+  .hero-intro { margin-inline: auto; }
+  .hero-actions { justify-content: center; }
   .scroll-cue { display: none; }
   .video-shell, .story { grid-template-columns: 1fr; }
   .story { padding-top: 100px; padding-bottom: 100px; }
@@ -133,8 +134,7 @@ footer p { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
   .nav nav a:nth-child(2) { display: none; }
   .wordmark { width: 82px; height: 60px; }
   .hero { padding-top: 72px; }
-  .hero-copy { padding-top: 52px; }
-  .hero-logo { height: 210px; margin: -26px 0 -35px -10px; }
+  .hero-copy { padding: 54px 26px 76px; }
   .character-wrap { height: 68svh; min-height: 500px; }
   .character-wrap figcaption { right: 10px; }
   .release { padding-top: 90px; padding-bottom: 90px; }
