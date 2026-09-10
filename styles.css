@@ -91,6 +91,32 @@ blockquote { margin: 26px 0; font: italic 600 clamp(27px, 3vw, 42px)/1.05 "Cormo
 .text-link { margin-top: 20px; color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .text-link span { color: var(--ember-light); margin-left: 8px; }
 
+.media-ribbon-section { padding: 120px 0; overflow: hidden; background: linear-gradient(145deg, #080707, #030303 65%); }
+.shorts-ribbon-section { background: radial-gradient(circle at 12% 15%, rgba(118,24,29,.3), transparent 28%), #070506; border-top: 1px solid rgba(178,42,49,.3); }
+.ribbon-heading { padding: 0 clamp(24px, 8vw, 130px); margin: 0 auto 42px; display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+.ribbon-heading .kicker { margin: 0 0 16px; }
+.ribbon-heading h2 { margin: 0; font: 400 clamp(54px, 8vw, 110px)/.85 "Bebas Neue", sans-serif; letter-spacing: .07em; }
+.ribbon-heading > p { max-width: 210px; margin: 0 0 7px; color: var(--muted); font: italic 600 18px/1.25 "Cormorant Garamond", serif; text-align: right; }
+.ribbon-viewport { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: ew-resize; outline: none; }
+.ribbon-viewport::-webkit-scrollbar { display: none; }
+.ribbon-viewport:focus-visible { box-shadow: inset 0 0 0 2px var(--ember-light); }
+.ribbon-track { display: flex; width: max-content; gap: 18px; padding: 0 max(24px, calc((100vw - 1260px) / 2)) 14px; }
+.media-card { position: relative; display: block; width: min(61vw, 720px); aspect-ratio: 16/9; overflow: hidden; background: #12090a; border: 1px solid rgba(178,42,49,.32); box-shadow: 0 24px 58px rgba(0,0,0,.44); isolation: isolate; }
+.media-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s ease, filter .55s ease; }
+.media-card-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,.06) 27%, rgba(3,3,3,.94) 100%); }
+.media-card-type, .media-card-title, .media-card-action { position: absolute; z-index: 2; left: clamp(18px, 2.3vw, 34px); }
+.media-card-type { top: clamp(17px, 2vw, 28px); color: #e3ddd4; font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; text-shadow: 0 2px 14px #000; }
+.media-card-title { bottom: clamp(33px, 4vw, 62px); max-width: 78%; color: #f1ece5; font: 600 clamp(32px, 4.2vw, 68px)/.88 "Cormorant Garamond", serif; text-shadow: 0 4px 20px #000; }
+.media-card-action { bottom: clamp(15px, 2vw, 27px); color: var(--ember-light); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.media-card:hover img, .media-card:focus-visible img { transform: scale(1.06); filter: brightness(1.12) saturate(.9); }
+.media-card:hover, .media-card:focus-visible { border-color: var(--ember-light); outline: none; }
+.shorts-track { gap: 14px; }
+.short-card { width: clamp(190px, 20vw, 286px); aspect-ratio: 9/16; }
+.short-card .media-card-title { bottom: 47px; font-size: clamp(27px, 2.4vw, 40px); }
+.short-card .media-card-type { font-size: 9px; }
+.short-card img { object-position: center; }
+
+
 .story { position: relative; min-height: 700px; padding: 150px clamp(24px, 13vw, 210px); display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 8vw; overflow: hidden; background: #d8d1c7; color: #110d0e; border-block: 8px solid #260609; }
 .story::before { content: ""; position: absolute; inset: 0; opacity: .06; background: repeating-linear-gradient(135deg, #000 0 1px, transparent 1px 8px); }
 .vertical-word { position: absolute; right: -18px; top: 50%; margin: 0; transform: translateY(-50%); writing-mode: vertical-rl; color: rgba(20,15,10,.045); font: 400 170px/1 "Bebas Neue", sans-serif; letter-spacing: .06em; }
@@ -127,11 +153,16 @@ footer p { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
   .video-shell, .story { grid-template-columns: 1fr; }
   .story { padding-top: 100px; padding-bottom: 100px; }
   .socials { grid-template-columns: repeat(2, 1fr); }
+  .ribbon-heading { align-items: start; flex-direction: column; }
+  .ribbon-heading > p { text-align: left; }
+  .media-card { width: min(82vw, 650px); }
+  .short-card { width: clamp(185px, 38vw, 260px); }
 }
 
 @media (max-width: 560px) {
   .nav { height: 72px; }
-  .nav nav a:nth-child(2) { display: none; }
+  .nav nav { gap: 15px; }
+  .nav nav a:nth-child(3) { display: none; }
   .wordmark { width: 82px; height: 60px; }
   .hero { padding-top: 72px; }
   .hero-copy { padding: 54px 26px 76px; }
@@ -140,6 +171,12 @@ footer p { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
   .release { padding-top: 90px; padding-bottom: 90px; }
   .section-heading h2 { font-size: 22vw; letter-spacing: .04em; }
   .video-copy { padding: 34px 24px; }
+  .media-ribbon-section { padding: 88px 0; }
+  .ribbon-heading { padding: 0 26px; margin-bottom: 30px; gap: 12px; }
+  .ribbon-heading h2 { font-size: clamp(48px, 14vw, 72px); }
+  .ribbon-track { padding-inline: 26px; }
+  .media-card { width: 86vw; }
+  .short-card { width: 64vw; max-width: 260px; }
   .story { padding-left: 26px; padding-right: 26px; }
   .socials { grid-template-columns: 1fr 1fr; }
   footer { padding-block: 30px; flex-direction: column; gap: 18px; text-align: center; }
